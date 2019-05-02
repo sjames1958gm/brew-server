@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Brewery
+Comment=Launch the brewery app
+Icon=/usr/share/pixmaps/chromium-browser.png
+Exec=/home/pi/bin/runBrew
+Type=Application
+Encoding=UTF-8
+Terminal=false
+Categories=None;

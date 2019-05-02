@@ -1,0 +1,4 @@
+#!/bin/sh
+
+/usr/bin/matchbox-keyboard --daemon&
+/usr/bin/chromium-browser --kiosk http://localhost:9090 --remote-debugging-port=9222 --user-data-dir=remote-profile --noerrdialogs --enable-virtual-keyboard&

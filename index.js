@@ -15,9 +15,11 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
+const sensorDir = process.env.SENSOR_DIR || "/sys/bus/w1/devices";
+
 function getSensors() {
   return new Promise((resolve, reject) => {
-    fs.readdir('/sys/bus/w1/devices', (err, list) => {
+    fs.readdir(process.env.SENSOR_DIR, (err, list) => {
       if (err) {
         reject(err);
       } else {
@@ -29,7 +31,7 @@ function getSensors() {
 
 function getSensor(id) {
   return new Promise((resolve, reject) => {
-    fs.readFile(`/sys/bus/w1/devices/${id}/w1_slave`, `utf8`, (err, data) => {
+    fs.readFile(`${sensorDir}/${id}/w1_slave`, `utf8`, (err, data) => {
       if (err) {
         reject(err);
       } else {
