@@ -19,7 +19,7 @@ const sensorDir = process.env.SENSOR_DIR || "/sys/bus/w1/devices";
 
 function getSensors() {
   return new Promise((resolve, reject) => {
-    fs.readdir(process.env.SENSOR_DIR, (err, list) => {
+    fs.readdir(sensorDir, (err, list) => {
       if (err) {
         reject(err);
       } else {
